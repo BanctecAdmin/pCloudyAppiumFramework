@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="pCloudy Suite" duration-ms="196905" started-at="2019-08-28T09:17:06Z" finished-at="2019-08-28T09:20:23Z">
+    <groups>
+    </groups>
+    <test name="test_Asus Zenfone Go 5.1.1" duration-ms="196905" started-at="2019-08-28T09:17:06Z" finished-at="2019-08-28T09:20:23Z">
+      <class name="pcloudy.testng.DriverExecution">
+        <test-method status="PASS" signature="beforeTest(java.lang.String)[pri:0, instance:pcloudy.testng.DriverExecution@2c34f934]" name="beforeTest" is-config="true" duration-ms="10" started-at="2019-08-28T14:47:06Z" finished-at="2019-08-28T14:47:06Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Asus Zenfone Go 5.1.1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="beforeClass(java.lang.String)[pri:0, instance:pcloudy.testng.DriverExecution@2c34f934]" name="beforeClass" is-config="true" duration-ms="37246" started-at="2019-08-28T14:47:06Z" finished-at="2019-08-28T14:47:44Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Asus Zenfone Go 5.1.1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="test1(java.lang.String)[pri:0, instance:pcloudy.testng.DriverExecution@2c34f934]" name="test1" duration-ms="154370" started-at="2019-08-28T14:47:44Z" finished-at="2019-08-28T14:50:18Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Asus Zenfone Go 5.1.1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test1 -->
+        <test-method status="PASS" signature="afterClass(java.lang.String)[pri:0, instance:pcloudy.testng.DriverExecution@2c34f934]" name="afterClass" is-config="true" duration-ms="2602" started-at="2019-08-28T14:50:18Z" finished-at="2019-08-28T14:50:20Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Asus Zenfone Go 5.1.1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="PASS" signature="afterTest(java.lang.String)[pri:0, instance:pcloudy.testng.DriverExecution@2c34f934]" name="afterTest" is-config="true" duration-ms="2670" started-at="2019-08-28T14:50:20Z" finished-at="2019-08-28T14:50:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Asus Zenfone Go 5.1.1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- pcloudy.testng.DriverExecution -->
+    </test> <!-- test_Asus Zenfone Go 5.1.1 -->
+  </suite> <!-- pCloudy Suite -->
+</testng-results>

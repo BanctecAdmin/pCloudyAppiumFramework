@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" configfailurepolicy="continue" name="Failed suite [pCloudy Suite]" parallel="tests">
+  <parameter name="myDeviceContext" value="Asus Zenfone Go 5.1.1"/>
+  <test name="test_Asus Zenfone Go 5.1.1">
+    <parameter name="myDeviceContext" value="Asus Zenfone Go 5.1.1"/>
+    <classes>
+      <class name="pcloudy.testng.DriverExecution"/>
+    </classes>
+  </test> <!-- test_Asus Zenfone Go 5.1.1 -->
+</suite> <!-- Failed suite [pCloudy Suite] -->

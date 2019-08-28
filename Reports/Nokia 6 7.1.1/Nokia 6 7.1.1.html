@@ -1,0 +1,557 @@
+<html>
+<head><title>Nokia 6 7.1.1</title>
+<style>
+body {background-color:white; font-family:Verdana, Geneva, sans-serif;}
+h1   {color:#004380;}
+h2   {color:#005199;background-color: #cce7ff;width: 98%; padding: 6px 6px 6px 10px; margin-bottom: 10px;}
+.environmentDetails tr:nth-of-type(odd) {background-color:#f1f1f1; font-family:'Comic Sans MS', cursive, sans-serif;}
+.environmentDetails tr:nth-of-type(even) {background-color:#ddeeff; font-family:'Comic Sans MS', cursive, sans-serif;}
+.environmentDetails td {padding: 3px;text-align: left;}
+.executionSteps tr:nth-of-type(odd) {
+    background-color:#f1f1f1;
+}
+.executionSteps tr:nth-of-type(even) {
+    background-color:#fff;
+}
+.executionSteps th, .executionSteps td {padding: 5px;text-align: left;}
+.pass { background-color:#8ed576; color:White; text-align: center;}
+.fail { background-color:#ffaa90; color:Red; text-align: center;}
+.notExecuted { background-color:#ffff66; text-align: center;}
+.comment { background-color:#adebad; color:#248f24; font-size:80%;}
+.testcase { background-color:#b3ccff; color:#000099; font-size:130%;}
+.executionSteps td { white-space:pre;
+max-width: 100px;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;}
+table.accordion {
+background-color: #7EC8C8;
+cursor: pointer;
+padding: 10px;
+width: 98%;
+border: 5px solid white;
+outline: none;
+font-size: 20px;
+transition: 0.4s;
+}
+table.accordion.active, table.accordion:hover {
+background-color: #3E8EB3;
+}
+div.panel {
+padding: 0 18px;
+display: none;
+background-color: white;
+}
+div.panel.show {
+display: block !important;
+}
+table#t01{
+padding:40px;
+}
+button.accordion {
+background-color: #cce7ff;
+color: #005199;
+cursor: pointer;
+padding: 10px;
+width: 100%;
+border: none;
+text-align: left;
+outline: none;
+font-size: 20px;
+transition: 0.4s;
+}
+button.accordion.active, button.accordion:hover {
+background-color: #ddd;
+}
+button {
+     background:none!important;
+     border:none; 
+     color: #005199;
+     padding:0!important;
+     font: inherit;
+}
+.white_content_popup {
+    display: none;
+    margin: auto;
+    position: absolute;
+    width: 50%;
+    height: 75%;
+    padding: 16px;
+    border: 16px light blue;
+    background-color: white;
+    z-index:1002;
+    overflow: auto;
+}
+pre {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+#customPopup
+{
+ width:50vw;
+ height:60vh;
+ z-index:11111;
+ position:fixed;
+ left: 25vw;
+ top: 25vh;
+}
+.hide {
+ display:none;
+}
+.popup-cover{
+ position:fixed;
+ top:0;
+ left:0;
+ width:100%;
+ height:100%;
+ z-index:100;
+ background-color:rgba(0,0,0,0.4);
+}
+.customImageContainer{
+width:100%;
+height:100%;
+padding:20px;
+background-color:#fafafa;
+overflow:auto;
+}
+.customImage{
+user-select: none;
+max-width:100%;
+margin-left: auto;
+margin-right: auto;
+display: block;
+max-height:100%;
+background-color:#fafafa;
+border:0;
+}
+.customImage.zoomed{
+margin-left: auto;
+margin-right: auto;
+display: block;
+}
+.close{
+position:absolute;
+right:15px;
+top:15px;
+z-index:111111;
+width: 30px;
+height: 30px;
+background-color: #2060B1;
+border-radius: 50%;
+}
+.close > i{
+color:#fff;
+text-align: center;
+width: 100%;
+height: 100%;
+line-height: 1.8em;
+}
+.close:hover{
+background-color: #003374;
+}
+.zoomed{
+transform:scale(2);
+transform-origin: left top;
+}
+.msg-for-user{
+text-align: center;
+background-color: #fff;
+font-weight: bold;
+font-size: 1.5em;
+margin: 0;
+padding: 20px;
+}
+</style>
+<script src='https://code.jquery.com/jquery-1.10.2.js'></script>
+<script type='text/javascript' src='https://www.google.com/jsapi'></script>
+<script type='text/javascript'>
+  google.load('visualization', '1', {packages:['corechart']});
+  google.setOnLoadCallback(drawTestCaseChart);
+  google.setOnLoadCallback(drawStepsChart);
+  function drawTestCaseChart() {
+
+    var data = google.visualization.arrayToDataTable([
+      ['Status', 'Number of steps'],
+      ['Passed Test Cases',     4],
+      ['Failed Test Cases',     1],
+      ['NotExecuted Test Cases',  0],
+    ]);
+
+    var options = {
+      title: 'TestCases Summary',
+      is3D: true,
+      slices: {
+          0: { color: 'Green' },
+          1: { color: 'Red' },
+          2: { color: 'Yellow' }
+        }
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('testCasesPieChart'));
+
+    chart.draw(data, options);
+  }
+  function drawStepsChart() {
+
+    var data = google.visualization.arrayToDataTable([
+      ['Status', 'Number of steps'],
+      ['Passed Steps',     11],
+      ['Failed Steps',     13],
+      ['NotExecuted Steps',  0],
+    ]);
+
+    var options = {
+      title: 'Steps Summary',
+      is3D: true,
+      slices: {
+          0: { color: 'Green' },
+          1: { color: 'Red' },
+          2: { color: 'Yellow' }
+        }
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('stepsPieChart'));
+
+    chart.draw(data, options);
+  }
+</script>
+<script type='text/javascript'>
+function showIt(imgsrc) {
+debugger;
+ $('#customPopup').removeClass('hide'); 
+ $('.popup-cover').removeClass('hide');
+ $('.customImage').attr('src',imgsrc);
+}
+</script>
+<script>
+$(document).keydown(function(e) {
+if (e.keyCode == 27) {
+if($('#customPopup').hasClass('hide') === false){
+$('#customPopup').addClass('hide');
+$('.popup-cover').addClass('hide');
+$('.customImage').removeClass( 'zoomed' );
+}
+}
+});
+$(document).ready(function(){
+$('.close').on('click', function(){
+$('#customPopup').addClass('hide');
+$('.customImage').removeClass( 'zoomed' );
+$('.popup-cover').addClass('hide');
+});
+$('.customImage').on('click', function() {
+$(this).toggleClass( 'zoomed' );
+if($('.customImage').hasClass('zoomed') === true){
+$('.customImage').css('cursor', 'zoom-out');
+}
+else{
+$('.customImage').css('cursor', 'zoom-in');
+}
+});
+$('.customImage').hover(function() {
+if($('.customImage').hasClass('zoomed') === true){
+$('.customImage').css('cursor', 'zoom-out');
+}
+else{
+$('.customImage').css('cursor', 'zoom-in');
+}
+});
+});
+</script>
+</head>
+<body>
+<table width=100%><tr>
+<td><img src=https://www.pcloudy.com/wp-content/uploads/2015/11/PCloudy_Logo_0-1.png alt='https://www.pcloudy.com/wp-content/uploads/2015/11/PCloudy_Logo_0-1.png' height='75px'></td> <td width=70%><center><h1>Report on Nokia 6 7.1.1</h1></center></td><td><img src=https://www.pcloudy.com/wp-content/uploads/2015/11/PCloudy_Logo_0-1.png alt='https://www.pcloudy.com/wp-content/uploads/2015/11/PCloudy_Logo_0-1.png' height='75px'></td>
+</tr></table>
+<hr/>
+<h2><u>Environment Details</u></h2>
+<table width='100%' border=0><tr><td rowspan=2 align='center'>
+<table class='environmentDetails' width=100% border=0align='left'>
+<tr><td>Execution Started On</td><td>2019-08-27T11:04:19.905</td></tr>
+<tr><td>Executed From</td><td>SBR-DEVP-26</td></tr>
+<tr><td>NetworkType</td><td></td></tr>
+<tr><td>Phone Number</td><td></td></tr>
+<tr><td>Total Time Elapsed</td><td>04:09 min</td></tr>
+</table></td>
+<td rowspan=2 align='right'><div id='testCasesPieChart' style='width: 400px; height: 300px;'></div></td>
+<td height='30%'></td>
+</tr><tr>
+<td align='left'><div id='stepsPieChart' style='width: 350px; height: 200px;'></div></td>
+</tr></table>
+</br>
+</br>
+<h2><u>Hyperlinks Details</u></h2>
+<table class='hyperlinkDetails' width=50% align=center>
+<tr><td>Appium Endpoint</td><td><a href='https://device.pcloudy.com/appium/hubble/mrvkfgmtq2pc-69775/wd/hub'>https://device.pcloudy.com/appium/hubble/mrvkfgmtq2pc-69775/wd/hub</a></td></tr>
+<tr><td>pCloudy Result Folder</td><td><a href='https://device.pcloudy.com/storage?reports=mrvkfgmtq2pc-69775'>https://device.pcloudy.com/storage?reports=mrvkfgmtq2pc-69775</a></td></tr>
+</table>
+<hr/>
+<h2><u>Execution Details</u></h2>
+<table align='center' cellpadding='10'><tr><td>
+<button id='expand_all_testcases'>Expand All</button>
+</td><td>
+<button id='toggle_all_testcases'>Toggle</button>
+</td><td>
+<button id='collapse_all_testcases'>Collapse All</button>
+</td></tr><table>
+<table class='accordion' align='center' cellpadding='2' border='0' bordercolor='white'><tr><td width='60%' align='left'>@Before Test: pcloudy.testng.DriverExecution</td><td width='10%' align='center'>00:00 min<td width='20%' align='center'><table border='0' width='90%' height='28px'><tr><td title='100%' bgcolor='green' width=100%></td></tr></table></td><td class='pass'>Pass </td> </tr></table>
+<div id='foo' class='panel'>
+<table class='executionSteps' width=95% align=center border=0>
+<tr><th> # </th> <th width=35%> Action </th> <th width=35%> Parameters </th> <th width=30%> Output </th> <th width=100px> Duration </th> <th width=200px> ExecutedOn </th><th width=150px> Result </th> </tr>
+<tr><td>1 </td> <td>@BeforeTest  </td> <td>  </td> <td title=''><pre></pre>  </td> <td>0 s  </td> <td>11:04:21 </td><td class='pass'>Pass </td> </tr>
+<tr><td>2 </td> <td>Create Report Folders  </td> <td>  </td> <td title=''><pre></pre>  </td> <td>0 s  </td> <td>11:04:21 </td><td class='pass'>Pass </td> </tr>
+</div>
+</table>
+</div>
+</div>
+</div>
+<table class='accordion' align='center' cellpadding='2' border='0' bordercolor='white'><tr><td width='60%' align='left'>@Before Class</td><td width='10%' align='center'>00:39 min<td width='20%' align='center'><table border='0' width='90%' height='28px'><tr><td title='100%' bgcolor='green' width=100%></td></tr></table></td><td class='pass'>Pass </td> </tr></table>
+<div id='foo' class='panel'>
+<table class='executionSteps' width=95% align=center border=0>
+<tr><th> # </th> <th width=35%> Action </th> <th width=35%> Parameters </th> <th width=30%> Output </th> <th width=100px> Duration </th> <th width=200px> ExecutedOn </th><th width=200px> Snapshot </th><th width=150px> Result </th> </tr>
+<tr><td colspan='8' class='comment'><pre>@Before Class : pcloudy.testng.DriverExecution</pre></td></tr>
+<tr><td>1 </td> <td>Launch Safari  </td> <td>Capabilities [{acceptAlerts=true, newCommandTimeout=600, platformVersion=7.1.1, browserName=Chrome, platformName=Android, launchTimeout=90000, deviceName=382, usePrebuiltWDA=true}]  </td> <td title='https://device.pcloudy.com/appium/hubble/mrvkfgmtq2pc-69775/wd/hub'><pre>https://device.pcloudy.com/appium/hubble/mrvkfgmtq2pc-69775/wd/hub</pre>  </td> <td>24 s  </td> <td>11:04:45 </td><td> </td><td class='pass'>Pass </td> </tr>
+<div class='popup-cover hide'>
+<p class='msg-for-user'>Press Esc Key to close this window</p>
+</div>
+<div id='customPopup' class='hide'>
+<div class='customImageContainer'>
+<img class='customImage' src='./Snapshots/Screen_null-15668840985-F5258385201750570770.jpg'>
+<tr><td>2 </td> <td>Open URL  </td> <td>  </td> <td title=''><pre></pre>  </td> <td>14 s  </td> <td>11:05:00 </td><td><a target='_blank' href='./Snapshots/Screen_null-15668840985-F5258385201750570770.jpg' onmouseover='showIt(this.href)'>Screen_null-15668840985-F5258385201750570770.jpg</a> </td><td class='pass'>Pass </td> </tr>
+</div>
+</table>
+</div>
+</div>
+</div>
+<table class='accordion' align='center' cellpadding='2' border='0' bordercolor='white'><tr><td width='60%' align='left'>TestCase test1 :pcloudy.testng.DriverExecution</td><td width='10%' align='center'>03:13 min<td width='20%' align='center'><table border='0' width='90%' height='28px'><tr><td title='23%' bgcolor='green' width=23%></td><td title='76%' bgcolor='red' width='76%'></td></tr></table></td><td class='fail'>Fail </td> </tr></table>
+<div id='foo' class='panel'>
+<table class='executionSteps' width=95% align=center border=0>
+<tr><th> # </th> <th width=35%> Action </th> <th width=35%> Parameters </th> <th width=30%> Output </th> <th width=100px> Duration </th> <th width=200px> ExecutedOn </th><th width=200px> Snapshot </th><th width=150px> Result </th> </tr>
+<tr><td colspan='8' class='comment'><pre>--- Add your Test Scripts over here ---</pre></td></tr>
+<tr><td colspan='8' class='comment'><pre>--- Add your Test Scripts over here ---</pre></td></tr>
+<div class='popup-cover hide'>
+<p class='msg-for-user'>Press Esc Key to close this window</p>
+</div>
+<div id='customPopup' class='hide'>
+<div class='customImageContainer'>
+<img class='customImage' src='./Snapshots/Screen_null-15668841057-F6303327188337918769.jpg'>
+<tr><td>1 </td> <td>Unable to click on AcceptCookies  </td> <td>  </td> <td title=''><pre></pre>  </td> <td>6 s  </td> <td>11:05:07 </td><td><a target='_blank' href='./Snapshots/Screen_null-15668841057-F6303327188337918769.jpg' onmouseover='showIt(this.href)'>Screen_null-15668841057-F6303327188337918769.jpg</a> </td><td class='fail'>Fail </td> </tr>
+<tr><td colspan='8' class='comment'><pre>End of TestCase # </pre></td></tr>
+<tr><td colspan='8' class='comment'><pre>--- Add your Test Scripts over here ---</pre></td></tr>
+<div class='popup-cover hide'>
+<p class='msg-for-user'>Press Esc Key to close this window</p>
+</div>
+<div id='customPopup' class='hide'>
+<div class='customImageContainer'>
+<img class='customImage' src='./Snapshots/Screen_null-15668841390-F4467523511454224656.jpg'>
+<tr><td>2 </td> <td>Unable to Locate Element for the object: HideButton  </td> <td>  </td> <td title=''><pre></pre>  </td> <td>33 s  </td> <td>11:05:40 </td><td><a target='_blank' href='./Snapshots/Screen_null-15668841390-F4467523511454224656.jpg' onmouseover='showIt(this.href)'>Screen_null-15668841390-F4467523511454224656.jpg</a> </td><td class='fail'>Fail </td> </tr>
+<div class='popup-cover hide'>
+<p class='msg-for-user'>Press Esc Key to close this window</p>
+</div>
+<div id='customPopup' class='hide'>
+<div class='customImageContainer'>
+<img class='customImage' src='./Snapshots/Screen_null-15668841724-F1725080350189027456.jpg'>
+<tr><td>3 </td> <td>Unable to Locate Element for the object: HideButton  </td> <td>  </td> <td title=''><pre></pre>  </td> <td>33 s  </td> <td>11:06:13 </td><td><a target='_blank' href='./Snapshots/Screen_null-15668841724-F1725080350189027456.jpg' onmouseover='showIt(this.href)'>Screen_null-15668841724-F1725080350189027456.jpg</a> </td><td class='fail'>Fail </td> </tr>
+<div class='popup-cover hide'>
+<p class='msg-for-user'>Press Esc Key to close this window</p>
+</div>
+<div id='customPopup' class='hide'>
+<div class='customImageContainer'>
+<img class='customImage' src='./Snapshots/Screen_null-15668841741-F5941339998967179417.jpg'>
+<tr><td>4 </td> <td>Unable to click on HideButton  </td> <td>  </td> <td title=''><pre></pre>  </td> <td>1 s  </td> <td>11:06:15 </td><td><a target='_blank' href='./Snapshots/Screen_null-15668841741-F5941339998967179417.jpg' onmouseover='showIt(this.href)'>Screen_null-15668841741-F5941339998967179417.jpg</a> </td><td class='fail'>Fail </td> </tr>
+<tr><td colspan='8' class='comment'><pre>End of TestCase # </pre></td></tr>
+<tr><td colspan='8' class='comment'><pre>--- Add your Test Scripts over here ---</pre></td></tr>
+<div class='popup-cover hide'>
+<p class='msg-for-user'>Press Esc Key to close this window</p>
+</div>
+<div id='customPopup' class='hide'>
+<div class='customImageContainer'>
+<img class='customImage' src='./Snapshots/Screen_null-15668841782-F7500806048280075638.jpg'>
+<tr><td>5 </td> <td>Clicked on HamburgerIcon  </td> <td>  </td> <td title=''><pre></pre>  </td> <td>4 s  </td> <td>11:06:19 </td><td><a target='_blank' href='./Snapshots/Screen_null-15668841782-F7500806048280075638.jpg' onmouseover='showIt(this.href)'>Screen_null-15668841782-F7500806048280075638.jpg</a> </td><td class='pass'>Pass </td> </tr>
+<tr><td colspan='8' class='comment'><pre>End of TestCase # </pre></td></tr>
+<tr><td colspan='8' class='comment'><pre>--- Add your Test Scripts over here ---</pre></td></tr>
+<div class='popup-cover hide'>
+<p class='msg-for-user'>Press Esc Key to close this window</p>
+</div>
+<div id='customPopup' class='hide'>
+<div class='customImageContainer'>
+<img class='customImage' src='./Snapshots/Screen_null-15668841824-F5099153857983106600.jpg'>
+<tr><td>6 </td> <td>Clicked on TryDrySign  </td> <td>  </td> <td title=''><pre></pre>  </td> <td>4 s  </td> <td>11:06:23 </td><td><a target='_blank' href='./Snapshots/Screen_null-15668841824-F5099153857983106600.jpg' onmouseover='showIt(this.href)'>Screen_null-15668841824-F5099153857983106600.jpg</a> </td><td class='pass'>Pass </td> </tr>
+<tr><td colspan='8' class='comment'><pre>End of TestCase # </pre></td></tr>
+<tr><td colspan='8' class='comment'><pre>--- Add your Test Scripts over here ---</pre></td></tr>
+<div class='popup-cover hide'>
+<p class='msg-for-user'>Press Esc Key to close this window</p>
+</div>
+<div id='customPopup' class='hide'>
+<div class='customImageContainer'>
+<img class='customImage' src='./Snapshots/Screen_null-15668841874-F5777031906107859237.jpg'>
+<tr><td>7 </td> <td>Entered data for FirstName  </td> <td>  </td> <td title=''><pre></pre>  </td> <td>5 s  </td> <td>11:06:29 </td><td><a target='_blank' href='./Snapshots/Screen_null-15668841874-F5777031906107859237.jpg' onmouseover='showIt(this.href)'>Screen_null-15668841874-F5777031906107859237.jpg</a> </td><td class='pass'>Pass </td> </tr>
+<tr><td colspan='8' class='comment'><pre>End of TestCase # </pre></td></tr>
+<tr><td colspan='8' class='comment'><pre>--- Add your Test Scripts over here ---</pre></td></tr>
+<div class='popup-cover hide'>
+<p class='msg-for-user'>Press Esc Key to close this window</p>
+</div>
+<div id='customPopup' class='hide'>
+<div class='customImageContainer'>
+<img class='customImage' src='./Snapshots/Screen_null-15668841918-F8072036520804864261.jpg'>
+<tr><td>8 </td> <td>Unable to enter data into LastName  </td> <td>  </td> <td title=''><pre></pre>  </td> <td>4 s  </td> <td>11:06:33 </td><td><a target='_blank' href='./Snapshots/Screen_null-15668841918-F8072036520804864261.jpg' onmouseover='showIt(this.href)'>Screen_null-15668841918-F8072036520804864261.jpg</a> </td><td class='fail'>Fail </td> </tr>
+<tr><td colspan='8' class='comment'><pre>End of TestCase # </pre></td></tr>
+<tr><td colspan='8' class='comment'><pre>--- Add your Test Scripts over here ---</pre></td></tr>
+<div class='popup-cover hide'>
+<p class='msg-for-user'>Press Esc Key to close this window</p>
+</div>
+<div id='customPopup' class='hide'>
+<div class='customImageContainer'>
+<img class='customImage' src='./Snapshots/Screen_null-15668841967-F3432512258972170816.jpg'>
+<tr><td>9 </td> <td>Unable to enter data into CompanyName  </td> <td>  </td> <td title=''><pre></pre>  </td> <td>4 s  </td> <td>11:06:38 </td><td><a target='_blank' href='./Snapshots/Screen_null-15668841967-F3432512258972170816.jpg' onmouseover='showIt(this.href)'>Screen_null-15668841967-F3432512258972170816.jpg</a> </td><td class='fail'>Fail </td> </tr>
+<tr><td colspan='8' class='comment'><pre>End of TestCase # </pre></td></tr>
+<tr><td colspan='8' class='comment'><pre>--- Add your Test Scripts over here ---</pre></td></tr>
+<div class='popup-cover hide'>
+<p class='msg-for-user'>Press Esc Key to close this window</p>
+</div>
+<div id='customPopup' class='hide'>
+<div class='customImageContainer'>
+<img class='customImage' src='./Snapshots/Screen_null-15668842071-F4493164599419762951.jpg'>
+<tr><td>10 </td> <td>Selected a dropdown value for Select_Country  </td> <td>  </td> <td title=''><pre></pre>  </td> <td>10 s  </td> <td>11:06:48 </td><td><a target='_blank' href='./Snapshots/Screen_null-15668842071-F4493164599419762951.jpg' onmouseover='showIt(this.href)'>Screen_null-15668842071-F4493164599419762951.jpg</a> </td><td class='pass'>Pass </td> </tr>
+<tr><td colspan='8' class='comment'><pre>End of TestCase # </pre></td></tr>
+<tr><td colspan='8' class='comment'><pre>--- Add your Test Scripts over here ---</pre></td></tr>
+<div class='popup-cover hide'>
+<p class='msg-for-user'>Press Esc Key to close this window</p>
+</div>
+<div id='customPopup' class='hide'>
+<div class='customImageContainer'>
+<img class='customImage' src='./Snapshots/Screen_null-15668842113-F1218623184545845921.jpg'>
+<tr><td>11 </td> <td>Unable to enter data into Contact_Number  </td> <td>  </td> <td title=''><pre></pre>  </td> <td>4 s  </td> <td>11:06:52 </td><td><a target='_blank' href='./Snapshots/Screen_null-15668842113-F1218623184545845921.jpg' onmouseover='showIt(this.href)'>Screen_null-15668842113-F1218623184545845921.jpg</a> </td><td class='fail'>Fail </td> </tr>
+<tr><td colspan='8' class='comment'><pre>End of TestCase # </pre></td></tr>
+<tr><td colspan='8' class='comment'><pre>--- Add your Test Scripts over here ---</pre></td></tr>
+<div class='popup-cover hide'>
+<p class='msg-for-user'>Press Esc Key to close this window</p>
+</div>
+<div id='customPopup' class='hide'>
+<div class='customImageContainer'>
+<img class='customImage' src='./Snapshots/Screen_null-15668842153-F4075033656444792532.jpg'>
+<tr><td>12 </td> <td>Unable to enter data into Email  </td> <td>  </td> <td title=''><pre></pre>  </td> <td>3 s  </td> <td>11:06:56 </td><td><a target='_blank' href='./Snapshots/Screen_null-15668842153-F4075033656444792532.jpg' onmouseover='showIt(this.href)'>Screen_null-15668842153-F4075033656444792532.jpg</a> </td><td class='fail'>Fail </td> </tr>
+<tr><td colspan='8' class='comment'><pre>End of TestCase # </pre></td></tr>
+<tr><td colspan='8' class='comment'><pre>--- Add your Test Scripts over here ---</pre></td></tr>
+<div class='popup-cover hide'>
+<p class='msg-for-user'>Press Esc Key to close this window</p>
+</div>
+<div id='customPopup' class='hide'>
+<div class='customImageContainer'>
+<img class='customImage' src='./Snapshots/Screen_null-15668842194-F3519297273158805833.jpg'>
+<tr><td>13 </td> <td>Unable to enter data into Create_Password  </td> <td>  </td> <td title=''><pre></pre>  </td> <td>4 s  </td> <td>11:07:01 </td><td><a target='_blank' href='./Snapshots/Screen_null-15668842194-F3519297273158805833.jpg' onmouseover='showIt(this.href)'>Screen_null-15668842194-F3519297273158805833.jpg</a> </td><td class='fail'>Fail </td> </tr>
+<tr><td colspan='8' class='comment'><pre>End of TestCase # </pre></td></tr>
+<tr><td colspan='8' class='comment'><pre>--- Add your Test Scripts over here ---</pre></td></tr>
+<div class='popup-cover hide'>
+<p class='msg-for-user'>Press Esc Key to close this window</p>
+</div>
+<div id='customPopup' class='hide'>
+<div class='customImageContainer'>
+<img class='customImage' src='./Snapshots/Screen_null-15668842532-F1246277627247788349.jpg'>
+<tr><td>14 </td> <td>Unable to Locate Element for the object: Accept_T&C  </td> <td>  </td> <td title=''><pre></pre>  </td> <td>33 s  </td> <td>11:07:34 </td><td><a target='_blank' href='./Snapshots/Screen_null-15668842532-F1246277627247788349.jpg' onmouseover='showIt(this.href)'>Screen_null-15668842532-F1246277627247788349.jpg</a> </td><td class='fail'>Fail </td> </tr>
+<div class='popup-cover hide'>
+<p class='msg-for-user'>Press Esc Key to close this window</p>
+</div>
+<div id='customPopup' class='hide'>
+<div class='customImageContainer'>
+<img class='customImage' src='./Snapshots/Screen_null-15668842872-F3922473812283843039.jpg'>
+<tr><td>15 </td> <td>Unable to Locate Element for the object: Accept_T&C  </td> <td>  </td> <td title=''><pre></pre>  </td> <td>33 s  </td> <td>11:08:08 </td><td><a target='_blank' href='./Snapshots/Screen_null-15668842872-F3922473812283843039.jpg' onmouseover='showIt(this.href)'>Screen_null-15668842872-F3922473812283843039.jpg</a> </td><td class='fail'>Fail </td> </tr>
+<div class='popup-cover hide'>
+<p class='msg-for-user'>Press Esc Key to close this window</p>
+</div>
+<div id='customPopup' class='hide'>
+<div class='customImageContainer'>
+<img class='customImage' src='./Snapshots/Screen_null-15668842890-F3350067753508282193.jpg'>
+<tr><td>16 </td> <td>Unable to click on Accept_T&C  </td> <td>  </td> <td title=''><pre></pre>  </td> <td>1 s  </td> <td>11:08:10 </td><td><a target='_blank' href='./Snapshots/Screen_null-15668842890-F3350067753508282193.jpg' onmouseover='showIt(this.href)'>Screen_null-15668842890-F3350067753508282193.jpg</a> </td><td class='fail'>Fail </td> </tr>
+<tr><td colspan='8' class='comment'><pre>End of TestCase # </pre></td></tr>
+<tr><td colspan='8' class='comment'><pre>--- Add your Test Scripts over here ---</pre></td></tr>
+<div class='popup-cover hide'>
+<p class='msg-for-user'>Press Esc Key to close this window</p>
+</div>
+<div id='customPopup' class='hide'>
+<div class='customImageContainer'>
+<img class='customImage' src='./Snapshots/Screen_null-15668842930-F8136253213672460592.jpg'>
+<tr><td>17 </td> <td>Unable to click on SignUp_Btn  </td> <td>  </td> <td title=''><pre></pre>  </td> <td>3 s  </td> <td>11:08:14 </td><td><a target='_blank' href='./Snapshots/Screen_null-15668842930-F8136253213672460592.jpg' onmouseover='showIt(this.href)'>Screen_null-15668842930-F8136253213672460592.jpg</a> </td><td class='fail'>Fail </td> </tr>
+<tr><td colspan='8' class='comment'><pre>End of TestCase # </pre></td></tr>
+<tr><td colspan='8' class='comment'><pre>--- Add your Test Scripts over here ---</pre></td></tr>
+<tr><td colspan='8' class='comment'><pre>End of TestCase # </pre></td></tr>
+</div>
+</table>
+</div>
+</div>
+</div>
+<table class='accordion' align='center' cellpadding='2' border='0' bordercolor='white'><tr><td width='60%' align='left'>@AfterClass</td><td width='10%' align='center'>00:01 min<td width='20%' align='center'><table border='0' width='90%' height='28px'><tr><td title='100%' bgcolor='green' width=100%></td></tr></table></td><td class='pass'>Pass </td> </tr></table>
+<div id='foo' class='panel'>
+<table class='executionSteps' width=95% align=center border=0>
+<tr><th> # </th> <th width=35%> Action </th> <th width=35%> Parameters </th> <th width=30%> Output </th> <th width=100px> Duration </th> <th width=200px> ExecutedOn </th><th width=150px> Result </th> </tr>
+<tr><td>1 </td> <td>@AfterClass : pcloudy.testng.DriverExecution  </td> <td>  </td> <td title=''><pre></pre>  </td> <td>0 s  </td> <td>11:08:24 </td><td class='pass'>Pass </td> </tr>
+<tr><td>2 </td> <td>Quit Driver Object  </td> <td>  </td> <td title=''><pre></pre>  </td> <td>1 s  </td> <td>11:08:26 </td><td class='pass'>Pass </td> </tr>
+</div>
+</table>
+</div>
+</div>
+</div>
+<table class='accordion' align='center' cellpadding='2' border='0' bordercolor='white'><tr><td width='60%' align='left'>@After Test: pcloudy.testng.DriverExecution</td><td width='10%' align='center'>00:02 min<td width='20%' align='center'><table border='0' width='90%' height='28px'><tr><td title='100%' bgcolor='green' width=100%></td></tr></table></td><td class='pass'>Pass </td> </tr></table>
+<div id='foo' class='panel'>
+<table class='executionSteps' width=95% align=center border=0>
+<tr><th> # </th> <th width=35%> Action </th> <th width=35%> Parameters </th> <th width=30%> Output </th> <th width=100px> Duration </th> <th width=200px> ExecutedOn </th><th width=150px> Result </th> </tr>
+<tr><td>1 </td> <td>Release Appium Session  </td> <td>  </td> <td title=''><pre></pre>  </td> <td>2 s  </td> <td>11:08:28 </td><td class='pass'>Pass </td> </tr>
+</div>
+</table>
+</div>
+</div>
+</div>
+</div>
+<hr/>
+<script>
+var acc = document.getElementsByClassName('accordion');
+var i;
+for (i = 0; i < acc.length; i++) {
+  acc[i].onclick = function(){
+       this.classList.toggle('active');
+       this.nextElementSibling.classList.toggle('show');
+  }
+}
+</script>
+<script>
+$(function(){
+$('#collapse_all_testcases').click(function(){
+var acc = document.getElementsByClassName('accordion');
+var i;
+for (i = 0; i < acc.length; i++) {
+    acc[i].classList.toggle('active', false);
+    acc[i].nextElementSibling.classList.toggle('show', false);
+}
+});
+$('#toggle_all_testcases').click(function(){
+var acc = document.getElementsByClassName('accordion');
+var i;
+for (i = 0; i < acc.length; i++) {
+    acc[i].classList.toggle('active');
+    acc[i].nextElementSibling.classList.toggle('show');
+}
+});
+$('#expand_all_testcases').click(function(){
+var acc = document.getElementsByClassName('accordion');
+var i;
+for (i = 0; i < acc.length; i++) {
+    acc[i].classList.toggle('active', true);
+    acc[i].nextElementSibling.classList.toggle('show', true);
+}
+});
+});
+</script>
+</br>
+</div>
+</div
+</body>
+<footer><center>
+<p>Report Powered by: pCloudy @ SSTS Inc. US.</p>
+<p>pCloudy&trade; is a registered trademark. Copyright Laws Apply. pCloudy is owned by Smart Software Testing Solutions Inc. US.</p>
+<a href='https://www.pcloudy.com'>https://www.pcloudy.com</a></p>
+</center></footer>
+<hr/>
+</html>
