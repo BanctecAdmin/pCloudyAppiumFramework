@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="3" configfailurepolicy="continue" name="pCloudy Suite" parallel="tests">
+  <test name="test_Lg G5 7.0.0">
+    <parameter name="myDeviceContext" value="Lg G5 7.0.0"/>
+    <classes>
+      <class name="pcloudy.testng.DriverExecution"/>
+    </classes>
+  </test> <!-- test_Lg G5 7.0.0 -->
+  <test name="test_Oppo F5 7.1.1">
+    <parameter name="myDeviceContext" value="Oppo F5 7.1.1"/>
+    <classes>
+      <class name="pcloudy.testng.DriverExecution"/>
+    </classes>
+  </test> <!-- test_Oppo F5 7.1.1 -->
+  <test name="test_Xiaomi Mi5 7.0.0">
+    <parameter name="myDeviceContext" value="Xiaomi Mi5 7.0.0"/>
+    <classes>
+      <class name="pcloudy.testng.DriverExecution"/>
+    </classes>
+  </test> <!-- test_Xiaomi Mi5 7.0.0 -->
+</suite> <!-- pCloudy Suite -->

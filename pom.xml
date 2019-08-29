@@ -43,15 +43,6 @@
 			<version>6.9.10</version>
 		</dependency>
 		
-		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
-		<!-- <dependency>
-    		<groupId>org.testng</groupId>
-    		<artifactId>testng</artifactId>
-    		<version>6.9.13.3</version>
-    		<scope>test</scope>
-		</dependency> -->
-		
-		
 		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
 		<dependency>
     		<groupId>org.apache.poi</groupId>
@@ -67,16 +58,23 @@
 		</dependency>
 		
 		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
-<dependency>
-    <groupId>commons-io</groupId>
-    <artifactId>commons-io</artifactId>
-    <version>2.4</version>
-</dependency>
+		<dependency>
+    		<groupId>commons-io</groupId>
+    		<artifactId>commons-io</artifactId>
+    		<version>2.4</version>
+		</dependency>
 		
 		<dependency>
 			<groupId>pCloudy-java-connector</groupId>
 			<artifactId>pCloudy-java-connector</artifactId>
 			<version>11.0.3</version>
 		</dependency>
+		
+		<dependency>
+    		<groupId>io.codearte.jfairy</groupId>
+    		<artifactId>jfairy</artifactId>
+    		<version>0.5.9</version>
+		</dependency>
+
 	</dependencies>
 </project>

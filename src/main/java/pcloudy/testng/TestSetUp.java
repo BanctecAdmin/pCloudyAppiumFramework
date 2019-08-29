@@ -75,6 +75,7 @@ public class TestSetUp {
 					myContext.report.addStep("Open URL", null, null, takeScreenShot(myContext), ExecutionResult.Pass);
 					return;
 				} catch (Exception ex) {
+					myContext.report.addStep("@Before Class ", null, null, ExecutionResult.NotExecuted);
 					// report.addComment(ex.getMessage());
 					Thread.sleep(3000);
 					if (firstException == null)

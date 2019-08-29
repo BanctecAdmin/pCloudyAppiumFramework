@@ -70,7 +70,7 @@ public class Controller {
 		ArrayList<MobileDevice> selectedDevices = new ArrayList<>();
 
 		//selectedDevices.addAll(con.chooseMultipleDevices(authToken, "android"));
-	    selectedDevices.addAll(con.chooseDevices(authToken, "android", new Version("5.*.*"),new Version("7.*.*"), 1));
+	    selectedDevices.addAll(con.chooseDevices(authToken, "android", new Version("5.*.*"),new Version("7.*.*"), 10));
 	     
 	     
 		String sessionName = selectedDevices.get(0).display_name + " Appium Session";

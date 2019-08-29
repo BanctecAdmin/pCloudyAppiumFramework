@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="3" configfailurepolicy="continue" name="pCloudy Suite" parallel="tests">
+  <test name="test_Huawei Honor 5c 6.0.0">
+    <parameter name="myDeviceContext" value="Huawei Honor 5c 6.0.0"/>
+    <classes>
+      <class name="pcloudy.testng.DriverExecution"/>
+    </classes>
+  </test> <!-- test_Huawei Honor 5c 6.0.0 -->
+  <test name="test_Sony Xperia XZ 7.1.1">
+    <parameter name="myDeviceContext" value="Sony Xperia XZ 7.1.1"/>
+    <classes>
+      <class name="pcloudy.testng.DriverExecution"/>
+    </classes>
+  </test> <!-- test_Sony Xperia XZ 7.1.1 -->
+  <test name="test_Oneplus 3 7.1.1">
+    <parameter name="myDeviceContext" value="Oneplus 3 7.1.1"/>
+    <classes>
+      <class name="pcloudy.testng.DriverExecution"/>
+    </classes>
+  </test> <!-- test_Oneplus 3 7.1.1 -->
+</suite> <!-- pCloudy Suite -->

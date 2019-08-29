@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="3" configfailurepolicy="continue" name="pCloudy Suite" parallel="tests">
+  <test name="test_Xiaomi Mi Note II 7.0.0">
+    <parameter name="myDeviceContext" value="Xiaomi Mi Note II 7.0.0"/>
+    <classes>
+      <class name="pcloudy.testng.DriverExecution"/>
+    </classes>
+  </test> <!-- test_Xiaomi Mi Note II 7.0.0 -->
+  <test name="test_Htc One X9 6.0.0">
+    <parameter name="myDeviceContext" value="Htc One X9 6.0.0"/>
+    <classes>
+      <class name="pcloudy.testng.DriverExecution"/>
+    </classes>
+  </test> <!-- test_Htc One X9 6.0.0 -->
+  <test name="test_Lg G5 7.0.0">
+    <parameter name="myDeviceContext" value="Lg G5 7.0.0"/>
+    <classes>
+      <class name="pcloudy.testng.DriverExecution"/>
+    </classes>
+  </test> <!-- test_Lg G5 7.0.0 -->
+</suite> <!-- pCloudy Suite -->

@@ -17,6 +17,8 @@ import com.ssts.util.reporting.ExecutionResult;
 import com.ssts.util.reporting.SingleRunReport;
 
 import io.appium.java_client.android.AndroidDriver;
+import io.codearte.jfairy.Fairy;
+import io.codearte.jfairy.producer.person.Person;
 import pcloudy.testng.DeviceContext;
 import pcloudy.testng.DriverExecution;
 import pcloudy.testng.TestSetUp;
@@ -78,12 +80,38 @@ public class ActionsCollection extends TestSetUp {
 	 
 	 public void setText(DeviceContext myContext,SingleRunReport report,AndroidDriver<WebElement> driver, String TData, String loc, String ObjectName)
 	 {
+		 String Data = null;
+		 if(ObjectName.equalsIgnoreCase("firstname")||
+			ObjectName.equalsIgnoreCase("lastname")	||
+			ObjectName.equalsIgnoreCase("email"))
+		 {
+			 Fairy fairy = Fairy.create();
+			 
+			 Person person = fairy.person();
+			 
+			 switch(ObjectName)
+			 {
+			 	case "FirstName" : Data = person.getFirstName();
+			 					break;
+			 					
+			 	case "LastName"  : Data = person.getLastName();
+			 					break;
+			 					
+			 	case "Email"  : Data = person.getCompanyEmail();
+			 					break;
+			 					
+			 }
+		 }
+		 else
+		 {
+			 Data = TData;
+		 }
 		 try {
 			 String msg = "Entered data for "+ObjectName;
 			 webDriverWait(myContext,report,driver, loc, ObjectName);
 			 WebElement ele = driver.findElement(By.xpath(loc));
 			 ele.click();
-			 ele.sendKeys(TData);
+			 ele.sendKeys(Data);
 			 report.addStep(msg, null, null, takeScreenShot(myContext), ExecutionResult.Pass);
 			 System.out.println(msg);
 		 }
@@ -91,7 +119,7 @@ public class ActionsCollection extends TestSetUp {
 		 {
 			 String msg = "Unable to enter data into "+ObjectName;
 			 report.addStep(msg, null, null, takeScreenShot(myContext), ExecutionResult.Fail);
-			 System.out.println(msg);
+			 System.out.println(msg+" and the data entered is : "+Data);
 			 e.printStackTrace();
 		 }
 		 
@@ -240,29 +268,29 @@ public class ActionsCollection extends TestSetUp {
 			 
 			 catch(org.openqa.selenium.NoSuchElementException e)
 		 	 {
-				 String msg = "Unable to Locate Element for the object: "+ObjectName;
-				 report.addStep(msg, null, null, takeScreenShot(myContext), ExecutionResult.Fail);
+				// String msg = "Unable to Locate Element for the object: "+ObjectName;
+				 //report.addStep(msg, null, null, takeScreenShot(myContext), ExecutionResult.Fail);
 				 System.out.println("Unable to Locate Element for the object: " + ObjectName + " : " + loc + "----> " + (i+1));
 		 	 }
 			 
 			 catch(StaleElementReferenceException e)
 		 	 {
-				 String msg = "Unable to Locate Element for the object: "+ObjectName;
-				 report.addStep(msg, null, null, takeScreenShot(myContext), ExecutionResult.Fail);
+				 //String msg = "Unable to Locate Element for the object: "+ObjectName;
+				 //report.addStep(msg, null, null, takeScreenShot(myContext), ExecutionResult.Fail);
 				 System.out.println("Unable to Locate Element for the object: " + ObjectName + " : " + loc + "----> " + (i+1)); 
 		 	 }
 			 
 			 catch(WebDriverException e)
 		 	 {
-				 String msg = "Unable to Locate Element for the object: "+ObjectName;
-				 report.addStep(msg, null, null, takeScreenShot(myContext), ExecutionResult.Fail);
+				 //String msg = "Unable to Locate Element for the object: "+ObjectName;
+				 //report.addStep(msg, null, null, takeScreenShot(myContext), ExecutionResult.Fail);
 				 System.out.println("Unable to Locate Element for the object: " + ObjectName + " : " + loc + "----> " + (i+1));
 		 	 }
 			 
 			 catch(Exception e)
 		 	 {
-				 String msg = "Unable to Locate Element for the object: "+ObjectName;
-				 report.addStep(msg, null, null, takeScreenShot(myContext), ExecutionResult.Fail);
+				 //String msg = "Unable to Locate Element for the object: "+ObjectName;
+				 //report.addStep(msg, null, null, takeScreenShot(myContext), ExecutionResult.Fail);
 				 System.out.println("Unable to Locate Element for the object: " + ObjectName + " : " + loc + "----> " + (i+1));
 		 	 }
 		 }

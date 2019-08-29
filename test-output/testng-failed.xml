@@ -1,11 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="1" configfailurepolicy="continue" name="Failed suite [pCloudy Suite]" parallel="tests">
-  <parameter name="myDeviceContext" value="Asus Zenfone Go 5.1.1"/>
-  <test name="test_Asus Zenfone Go 5.1.1">
-    <parameter name="myDeviceContext" value="Asus Zenfone Go 5.1.1"/>
+<suite thread-count="10" configfailurepolicy="continue" name="Failed suite [pCloudy Suite]" parallel="tests">
+  <parameter name="myDeviceContext" value="Motorola Nexus 6 7.1.1"/>
+  <test name="test_Samsung Galaxy Tab4 10.1 5.0.2">
+    <parameter name="myDeviceContext" value="Samsung Galaxy Tab4 10.1 5.0.2"/>
     <classes>
       <class name="pcloudy.testng.DriverExecution"/>
     </classes>
-  </test> <!-- test_Asus Zenfone Go 5.1.1 -->
+  </test> <!-- test_Samsung Galaxy Tab4 10.1 5.0.2 -->
+  <test name="test_Karbonn Aura Power 5.1.0">
+    <parameter name="myDeviceContext" value="Karbonn Aura Power 5.1.0"/>
+    <classes>
+      <class name="pcloudy.testng.DriverExecution"/>
+    </classes>
+  </test> <!-- test_Karbonn Aura Power 5.1.0 -->
+  <test name="test_Huawei P9 6.0.0">
+    <parameter name="myDeviceContext" value="Huawei P9 6.0.0"/>
+    <classes>
+      <class name="pcloudy.testng.DriverExecution"/>
+    </classes>
+  </test> <!-- test_Huawei P9 6.0.0 -->
+  <test name="test_Samsung Galaxy Note 4 6.0.1">
+    <parameter name="myDeviceContext" value="Samsung Galaxy Note 4 6.0.1"/>
+    <classes>
+      <class name="pcloudy.testng.DriverExecution"/>
+    </classes>
+  </test> <!-- test_Samsung Galaxy Note 4 6.0.1 -->
+  <test name="test_Lava P7 Plus 6.0.0">
+    <parameter name="myDeviceContext" value="Lava P7 Plus 6.0.0"/>
+    <classes>
+      <class name="pcloudy.testng.DriverExecution"/>
+    </classes>
+  </test> <!-- test_Lava P7 Plus 6.0.0 -->
+  <test name="test_Oneplus 3 7.1.1">
+    <parameter name="myDeviceContext" value="Oneplus 3 7.1.1"/>
+    <classes>
+      <class name="pcloudy.testng.DriverExecution"/>
+    </classes>
+  </test> <!-- test_Oneplus 3 7.1.1 -->
+  <test name="test_Lg G Flex II 5.1.1">
+    <parameter name="myDeviceContext" value="Lg G Flex II 5.1.1"/>
+    <classes>
+      <class name="pcloudy.testng.DriverExecution"/>
+    </classes>
+  </test> <!-- test_Lg G Flex II 5.1.1 -->
+  <test name="test_Xiaomi Redmi Note III 6.0.1">
+    <parameter name="myDeviceContext" value="Xiaomi Redmi Note III 6.0.1"/>
+    <classes>
+      <class name="pcloudy.testng.DriverExecution"/>
+    </classes>
+  </test> <!-- test_Xiaomi Redmi Note III 6.0.1 -->
+  <test name="test_Samsung Galaxy J Max 5.1.1">
+    <parameter name="myDeviceContext" value="Samsung Galaxy J Max 5.1.1"/>
+    <classes>
+      <class name="pcloudy.testng.DriverExecution"/>
+    </classes>
+  </test> <!-- test_Samsung Galaxy J Max 5.1.1 -->
+  <test name="test_Motorola Nexus 6 7.1.1">
+    <parameter name="myDeviceContext" value="Motorola Nexus 6 7.1.1"/>
+    <classes>
+      <class name="pcloudy.testng.DriverExecution"/>
+    </classes>
+  </test> <!-- test_Motorola Nexus 6 7.1.1 -->
+  <test name="test_Xiaomi Redmi Note III 6.0.1(failed)" parallel="tests">
+    <parameter name="myDeviceContext" value="Xiaomi Redmi Note III 6.0.1"/>
+    <classes>
+      <class name="pcloudy.testng.DriverExecution">
+        <methods>
+          <include name="test1"/>
+          <include name="beforeTest"/>
+          <include name="beforeTest"/>
+          <include name="beforeTest"/>
+          <include name="beforeTest"/>
+          <include name="beforeTest"/>
+          <include name="beforeTest"/>
+          <include name="beforeTest"/>
+          <include name="beforeTest"/>
+          <include name="beforeTest"/>
+          <include name="beforeTest"/>
+          <include name="afterClass"/>
+          <include name="afterClass"/>
+          <include name="afterClass"/>
+          <include name="afterClass"/>
+          <include name="afterClass"/>
+          <include name="afterClass"/>
+          <include name="afterClass"/>
+          <include name="afterClass"/>
+          <include name="afterClass"/>
+          <include name="beforeClass"/>
+          <include name="beforeClass"/>
+          <include name="beforeClass"/>
+          <include name="beforeClass"/>
+          <include name="beforeClass"/>
+          <include name="beforeClass"/>
+          <include name="beforeClass"/>
+          <include name="beforeClass"/>
+          <include name="beforeClass"/>
+          <include name="beforeClass"/>
+          <include name="afterTest"/>
+          <include name="afterTest"/>
+          <include name="afterTest"/>
+          <include name="afterTest"/>
+          <include name="afterTest"/>
+          <include name="afterTest"/>
+          <include name="afterTest"/>
+          <include name="afterTest"/>
+          <include name="afterTest"/>
+          <include name="afterTest"/>
+        </methods>
+      </class> <!-- pcloudy.testng.DriverExecution -->
+    </classes>
+  </test> <!-- test_Xiaomi Redmi Note III 6.0.1(failed) -->
 </suite> <!-- Failed suite [pCloudy Suite] -->
